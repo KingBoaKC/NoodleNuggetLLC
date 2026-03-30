@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — NoodleNugget LLC</title>
+  <meta name="description" content="Get in touch with NoodleNugget LLC for IT support, creative consulting, or to discuss your project. Kansas City and remote." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.png" />
+  <style>
+    .contact-info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .info-row h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .info-row p, .info-row a {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .info-row a { color: var(--amber); }
+    .info-row a:hover { color: var(--amber-lt); }
+
+    .form-status {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      color: #81c784;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="NoodleNugget LLC logo" />
+        <span>NoodleNugget LLC</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="contact.html" class="nav-cta active">Get Help</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Contact</span>
+      <h1>Let's Figure It Out Together</h1>
+      <p class="lead">Whether it's a tech issue, a tricky problem, or just an idea you want to think through — reach out. No jargon, no runaround.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="align-items:start; gap:3rem;">
+
+        <!-- FORM -->
+        <div>
+          <h2 style="margin-bottom:0.5rem;">Send Us a Message</h2>
+          <p style="color:var(--muted); margin-bottom:2rem; font-size:0.9rem;">Describe what's going on in plain terms. We'll get back to you promptly.</p>
+
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">What do you need help with?</label>
+              <select id="subject" name="subject">
+                <option value="">— Select the best fit —</option>
+                <option>Computer / device issue</option>
+                <option>Network / WiFi problem</option>
+                <option>Security concern</option>
+                <option>Backup / data recovery</option>
+                <option>New device setup</option>
+                <option>Remote support session</option>
+                <option>Think tank / consulting</option>
+                <option>General inquiry</option>
+                <option>Something else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell us what's going on</label>
+              <textarea id="message" name="message" placeholder="Describe the issue or what you're working through — don't worry about using the right tech terms. Just tell us what's happening." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Your location (optional)</label>
+              <input type="text" id="location" name="location" placeholder="e.g. Overland Park, KS — or Remote" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:0.85rem;">Send Message &rarr;</button>
+
+            <div class="form-status" id="formStatus">
+              &#10003; Thanks for reaching out! We'll be in touch shortly.
+            </div>
+          </form>
+        </div>
+
+        <!-- INFO SIDEBAR -->
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+          <div class="contact-info-card">
+            <div class="info-row">
+              <div class="info-icon">&#9993;</div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:noodlenuggetllc@gmail.com">noodlenuggetllc@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">&#127981;</div>
+              <div>
+                <h4>Service Area</h4>
+                <p>Kansas City Metro — on-site</p>
+                <p style="color:var(--muted); font-size:0.85rem; margin-top:0.25rem;">Nationwide remote support available</p>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">&#128337;</div>
+              <div>
+                <h4>Response Time</h4>
+                <p>We aim to respond within one business day. Urgent issues addressed as quickly as possible.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:0 var(--radius) var(--radius) 0; padding:1.5rem;">
+            <h3 style="margin-bottom:0.5rem; font-size:1rem;">Not sure if we can help?</h3>
+            <p style="color:var(--muted); font-size:0.88rem;">Ask anyway. We'd rather tell you we're not the right fit than have you go without help. And honestly — we can probably help.</p>
+          </div>
+
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem;">
+            <h3 style="margin-bottom:0.75rem; font-size:0.95rem;">Common requests:</h3>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "My computer is running really slow"</li>
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "I think I have a virus"</li>
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "My WiFi keeps dropping out"</li>
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "I got a new laptop and need help getting it set up"</li>
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "I'm not sure my backups are actually working"</li>
+              <li style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--amber);">→</span> "I need help thinking through a business problem"</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="NoodleNugget LLC" />
+          <p>Creative solutions and IT support for home users and small businesses. Kansas City &amp; remote.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:noodlenuggetllc@gmail.com">noodlenuggetllc@gmail.com</a></li>
+            <li><a href="contact.html">Kansas City &amp; Remote</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 NoodleNugget LLC. All rights reserved.</span>
+        <span>Kansas City, MO</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      // In production, wire this to a form backend (Formspree, Netlify Forms, etc.)
+      // For now, show a success message
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      setTimeout(() => {
+        btn.style.display = 'none';
+        document.getElementById('formStatus').classList.add('success');
+        e.target.reset();
+      }, 800);
+    }
+  </script>
+</body>
+</html>
