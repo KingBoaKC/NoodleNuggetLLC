@@ -143,7 +143,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 76px;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -157,7 +157,7 @@ nav {
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 54px;
   width: auto;
   filter: invert(1);
 }
@@ -280,7 +280,7 @@ nav {
 }
 
 .hero-logo {
-  width: 220px;
+  width: 270px;
   flex-shrink: 0;
   opacity: 0.9;
   filter: invert(1);
@@ -432,7 +432,7 @@ footer {
 }
 
 .footer-brand img {
-  height: 36px;
+  height: 48px;
   filter: invert(1);
   margin-bottom: 0.75rem;
 }
