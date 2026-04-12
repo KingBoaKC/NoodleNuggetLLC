@@ -574,6 +574,69 @@ footer {
   .think-grid { grid-template-columns: 1fr; }
 }
 
+/* ── AFFILIATES ───────────────────────────── */
+.affiliate-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.affiliate-card {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  align-items: start;
+  transition: border-color 0.2s;
+}
+
+.affiliate-card:hover {
+  border-color: var(--amber);
+}
+
+.affiliate-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  aspect-ratio: 1;
+}
+
+.affiliate-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.affiliate-meta {
+  margin-bottom: 0.75rem;
+}
+
+.affiliate-meta h2 {
+  margin-bottom: 0.3rem;
+}
+
+.affiliate-btn {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+@media (max-width: 680px) {
+  .affiliate-card {
+    grid-template-columns: 1fr;
+  }
+  .affiliate-logo-wrap {
+    max-width: 180px;
+    aspect-ratio: 1;
+  }
+}
+
 /* ── ANIMATIONS ───────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
